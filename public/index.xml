@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Jasiah</title>
+    <link>/</link>
+    <description>Recent content on Jasiah</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 02 Nov 2023 14:51:44 +1100</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>API hacking</title>
+      <link>/posts/1.project-overview/</link>
+      <pubDate>Thu, 02 Nov 2023 14:51:44 +1100</pubDate>
+      
+      <guid>/posts/1.project-overview/</guid>
+      <description>I&amp;rsquo;ll be going through everything about APIs, what API hacking is and how to do it ethically and what the vulnerabilities are.
+API overview (What are APIs??) API, or Application Programming Interface, is a set of protocols and tools that enable different software applications to communicate with each other. It defines the methods and data formats applications can use to request and exchange information. In a security context, understanding API is crucial to protect systems from unauthorized access and exploitation.</description>
+    </item>
+    
+    <item>
+      <title>Hacking API techniques</title>
+      <link>/posts/2.hacking-techniques/</link>
+      <pubDate>Mon, 30 Oct 2023 14:51:44 +1100</pubDate>
+      
+      <guid>/posts/2.hacking-techniques/</guid>
+      <description>Common API Hacking Techniques API Reconnaissance: Hackers initiate reconnaissance activities with the goal of discovering and thoroughly analyzing a target system&amp;rsquo;s exposed APIs. This phase entails a comprehensive exploration of the target&amp;rsquo;s documentation, scrutiny of network traffic, or examination of application binaries to discern critical information, including API endpoints, parameters, and authentication mechanisms.
+API Enumeration: During API enumeration, hackers engage in systematic probing of the target system&amp;rsquo;s APIs. Their objective is to accumulate data pertaining to available endpoints, supported methods, and data structures.</description>
+    </item>
+    
+    <item>
+      <title>What to look for?</title>
+      <link>/posts/3.testing/</link>
+      <pubDate>Thu, 26 Oct 2023 14:51:44 +1100</pubDate>
+      
+      <guid>/posts/3.testing/</guid>
+      <description>To effectively test web APIs, it&amp;rsquo;s essential to grasp their communication methods. The predominant approach for applications to interact is through HTTP requests.
+HTTP, a protocol facilitating communication between web clients (like browsers) and servers, underpins this interaction. When you enter a URL into your browser, your computer dispatches an HTTP request to the hosting server of the website. In response, the server provides HTML and other requisite files for rendering the website.</description>
+    </item>
+    
+    <item>
+      <title>Demo (Part 1)</title>
+      <link>/posts/4.demo/</link>
+      <pubDate>Sun, 22 Oct 2023 14:51:44 +1100</pubDate>
+      
+      <guid>/posts/4.demo/</guid>
+      <description>✨ ✨ Building my own API testing lab ✨✨ The Hacking Tools So there are literally pages and pages of resources and tools you can use for hacking APIs. It took me days and continuous hours of reading every security article ever on this topic to narrow down what I&amp;rsquo;ll use here.
+Postman For the web client I&amp;rsquo;ll be using Postman. In essence, Postman is just another HTTP client which can be used to easily modify and send requests to APIs.</description>
+    </item>
+    
+    <item>
+      <title>Demo (Part 2)</title>
+      <link>/posts/5.demo/</link>
+      <pubDate>Fri, 20 Oct 2023 14:51:44 +1100</pubDate>
+      
+      <guid>/posts/5.demo/</guid>
+      <description>Testing Before we jump in, it&amp;rsquo;ll be handy to know a little bit more about the HTTP status codes. Here is nice little cheat sheet from OWASP for quick ref Okay now we&amp;rsquo;ll have a look at my results and try to spot anything peculiar Our very first request is our control and there isn&amp;rsquo;t any change to the original request so it&amp;rsquo;s nothing odd. But if we look at the other attack packets their status is all HTTP 200.</description>
+    </item>
+    
+    <item>
+      <title>Demo (Part 3)</title>
+      <link>/posts/6.demo/</link>
+      <pubDate>Thu, 19 Oct 2023 14:51:44 +1100</pubDate>
+      
+      <guid>/posts/6.demo/</guid>
+      <description>This time I tried to see if I could at least find vulerabilities in an exisiting website.
+I decided to &amp;lsquo;attack&amp;rsquo; a website I helped develop some features. I specifically wanted to find vulnerabilities within the EZdebit API we use for payments
+First I created some traffic on burp suite just browsing through the website
+I was able to see all the files but interestingly because we are authenticated by logging in and given a &amp;rsquo;token&amp;rsquo;, no sensitive data is accessible I tried scanning the ezDebit file by sending it to intruder however only through further authentication is anything available, which I did not access Good security 👍👍👍👍</description>
+    </item>
+    
+  </channel>
+</rss>

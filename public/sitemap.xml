@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>/posts/1.project-overview/</loc>
+    <lastmod>2023-11-02T14:51:44+11:00</lastmod>
+  </url><url>
+    <loc>/</loc>
+    <lastmod>2023-11-02T14:51:44+11:00</lastmod>
+  </url><url>
+    <loc>/posts/</loc>
+    <lastmod>2023-11-02T14:51:44+11:00</lastmod>
+  </url><url>
+    <loc>/posts/2.hacking-techniques/</loc>
+    <lastmod>2023-10-30T14:51:44+11:00</lastmod>
+  </url><url>
+    <loc>/posts/3.testing/</loc>
+    <lastmod>2023-10-26T14:51:44+11:00</lastmod>
+  </url><url>
+    <loc>/posts/4.demo/</loc>
+    <lastmod>2023-10-22T14:51:44+11:00</lastmod>
+  </url><url>
+    <loc>/posts/5.demo/</loc>
+    <lastmod>2023-10-20T14:51:44+11:00</lastmod>
+  </url><url>
+    <loc>/posts/6.demo/</loc>
+    <lastmod>2023-10-19T14:51:44+11:00</lastmod>
+  </url><url>
+    <loc>/categories/</loc>
+  </url><url>
+    <loc>/tags/</loc>
+  </url>
+</urlset>

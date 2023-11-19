@@ -1,0 +1,23 @@
+:root {
+    --theme: rgb(255, 215, 246); /* Baby Pink */
+    --entry: #ffbdf4; /* Baby Pink */
+    --primary: #ff09ade0; /* Baby Pink */
+    --secondary: rgba(0, 0, 80, 0.78); /* Baby Pink */
+    --tertiary: rgba(0, 0, 106, 0.16); /* Baby Pink */
+    --content: rgba(0, 0, 60, 0.88); /* Baby Pink */
+    --hljs-bg: #1c1d21; /* Dark Background */
+    --code-bg: #ffc6e7; /* Light Gray */
+    --border: rgb(255, 228, 244); /* Light Gray */
+}
+
+.dark {
+    --theme: #000; /* Black */
+    --entry: rgb(28, 3, 88); /* post cards */
+    --primary: #ff529a; /* Prettier Pink */
+    --secondary: #ffffff; /* small text like date */
+    --tertiary: #fd009c; /*  scroll */
+    --content: #ffcbe1; /* Post text */
+    --hljs-bg: #1c1d21; /* Dark Background */
+    --code-bg: #181717; /* next nav bar */
+    --border: rgb(255, 228, 244); /* Light Gray */
+}

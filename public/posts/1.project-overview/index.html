@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>API hacking | Jasiah</title>
+<meta name="keywords" content="">
+<meta name="description" content="I&rsquo;ll be going through everything about APIs, what API hacking is and how to do it ethically and what the vulnerabilities are.
+API overview (What are APIs??) API, or Application Programming Interface, is a set of protocols and tools that enable different software applications to communicate with each other. It defines the methods and data formats applications can use to request and exchange information. In a security context, understanding API is crucial to protect systems from unauthorized access and exploitation.">
+<meta name="author" content="">
+<link rel="canonical" href="/posts/1.project-overview/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.158c5ac8e9603daaf70ca166289150e5c28de3dde0bbac1d91028b5c7da2bf70.css" integrity="sha256-FYxayOlgPar3DKFmKJFQ5cKN493gu6wdkQKLXH2iv3A=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="mask-icon" href="safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="API hacking" />
+<meta property="og:description" content="I&rsquo;ll be going through everything about APIs, what API hacking is and how to do it ethically and what the vulnerabilities are.
+API overview (What are APIs??) API, or Application Programming Interface, is a set of protocols and tools that enable different software applications to communicate with each other. It defines the methods and data formats applications can use to request and exchange information. In a security context, understanding API is crucial to protect systems from unauthorized access and exploitation." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/1.project-overview/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-11-02T14:51:44+11:00" />
+<meta property="article:modified_time" content="2023-11-02T14:51:44+11:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="API hacking"/>
+<meta name="twitter:description" content="I&rsquo;ll be going through everything about APIs, what API hacking is and how to do it ethically and what the vulnerabilities are.
+API overview (What are APIs??) API, or Application Programming Interface, is a set of protocols and tools that enable different software applications to communicate with each other. It defines the methods and data formats applications can use to request and exchange information. In a security context, understanding API is crucial to protect systems from unauthorized access and exploitation."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Posts",
+      "item": "/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "API hacking",
+      "item": "/posts/1.project-overview/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "API hacking",
+  "name": "API hacking",
+  "description": "I\u0026rsquo;ll be going through everything about APIs, what API hacking is and how to do it ethically and what the vulnerabilities are.\nAPI overview (What are APIs??) API, or Application Programming Interface, is a set of protocols and tools that enable different software applications to communicate with each other. It defines the methods and data formats applications can use to request and exchange information. In a security context, understanding API is crucial to protect systems from unauthorized access and exploitation.",
+  "keywords": [
+    
+  ],
+  "articleBody": "I’ll be going through everything about APIs, what API hacking is and how to do it ethically and what the vulnerabilities are.\nAPI overview (What are APIs??) API, or Application Programming Interface, is a set of protocols and tools that enable different software applications to communicate with each other. It defines the methods and data formats applications can use to request and exchange information. In a security context, understanding API is crucial to protect systems from unauthorized access and exploitation.\nAPI use cases in modern application Web Applications APIs allow third-party developers to access specific functionality within a web application, enabling the integration of various services and data.\nSoftware Development Developers use APIs to request information from a web application, often through REST APIs, to access or manipulate data and functionality.\nBanking and Financial Institutions APIs are employed to enable customers to link their accounts with third-party applications, facilitating access to financial data securely.\nStreaming Service Providers Streaming services often use APIs to deliver content and services to users while maintaining security and access control.\nWhat makes API important APIs offer several key benefits:\nData Access : Developers can access data and functionality from other applications, making it easier to create rich, integrated services. Interoperability: APIs allow applications to interact with each other, fostering a cohesive digital ecosystem. Innovation: They enable developers to create new and innovative applications by building on top of existing ones. Efficiency: Developers can create more reliable and efficient applications by leveraging APIs, saving time and resources. Scalability: APIs make it easier to scale applications, accommodating growing user bases and increased demands. API functionality and examples SOAP APIs: These are like messengers that use a special language (HTTP) to talk to web services. They can chat with web services written in different programming languages. In cybersecurity, we need to ensure these messengers don’t share sensitive information with the wrong people.\nREST APIs: Think of these as request forms you fill out on a website. You can ask for information (GET), add new stuff (POST), update what’s there (PUT), or even delete things (DELETE). They’re used to talk to databases, file systems, and more. Securing them is essential to prevent unauthorized access to data and actions.\nJSON APIs: These are like messages between computers. They use a simple text format that’s easy for machines to understand. They are commonly used to send data between a server and a web application. Protecting them means ensuring that the messages aren’t tampered with or read by the wrong people.\nHTTP API: This is like sending letters using the postal service but over the internet. It’s a common way for web applications to talk to each other. Security here is about making sure the letters (data) aren’t intercepted or altered by cybercriminals.\nGraphQL: Imagine this as a smart assistant who understands your exact needs. With GraphQL, you can ask for specific information, and it will give you just that. It’s great for reducing unnecessary data transfer. However, we need to make sure it doesn’t give out too much information or get tricked into doing something it shouldn’t.\nIn the world of cybersecurity, it’s important to protect these communication methods to ensure that your data stays safe and confidential while using the internet.\n",
+  "wordCount" : "541",
+  "inLanguage": "en",
+  "datePublished": "2023-11-02T14:51:44+11:00",
+  "dateModified": "2023-11-02T14:51:44+11:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/posts/1.project-overview/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Jasiah",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="" accesskey="h" title="Jasiah (Alt + H)">Jasiah</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="/" title="Jasiah">
+                    <span>home</span>
+                </a>
+            </li>
+            <li>
+                <a href="/posts/" title="project">
+                    <span>project</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="">Home</a>&nbsp;»&nbsp;<a href="/posts/">Posts</a></div>
+    <h1 class="post-title">
+      API hacking
+    </h1>
+    <div class="post-meta"><span title='2023-11-02 14:51:44 +1100 +1100'>November 2, 2023</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p>I&rsquo;ll be going through everything about APIs, what API hacking is and how to do it ethically and what the vulnerabilities are.</p>
+<h2 id="api-overview-what-are-apis">API overview (What are APIs??)<a hidden class="anchor" aria-hidden="true" href="#api-overview-what-are-apis">#</a></h2>
+<p>API, or Application Programming Interface, is a set of protocols and tools that enable different software applications to communicate with each other. It defines the methods and data formats applications can use to request and exchange information. In a security context, understanding API is crucial to protect systems from unauthorized access and exploitation.</p>
+<h3 id="api-use-cases-in-modern-application">API use cases in modern application<a hidden class="anchor" aria-hidden="true" href="#api-use-cases-in-modern-application">#</a></h3>
+<h4 id="web-applications">Web Applications<a hidden class="anchor" aria-hidden="true" href="#web-applications">#</a></h4>
+<p>APIs allow third-party developers to access specific functionality within a web application, enabling the integration of various services and data.</p>
+<h4 id="software-development">Software Development<a hidden class="anchor" aria-hidden="true" href="#software-development">#</a></h4>
+<p>Developers use APIs to request information from a web application, often through REST APIs, to access or manipulate data and functionality.</p>
+<h4 id="banking-and-financial-institutions">Banking and Financial Institutions<a hidden class="anchor" aria-hidden="true" href="#banking-and-financial-institutions">#</a></h4>
+<p>APIs are employed to enable customers to link their accounts with third-party applications, facilitating access to financial data securely.</p>
+<h4 id="streaming-service-providers">Streaming Service Providers<a hidden class="anchor" aria-hidden="true" href="#streaming-service-providers">#</a></h4>
+<p>Streaming services often use APIs to deliver content and services to users while maintaining security and access control.</p>
+<h3 id="what-makes-api-important">What makes API important<a hidden class="anchor" aria-hidden="true" href="#what-makes-api-important">#</a></h3>
+<p>APIs offer several key benefits:</p>
+<ul>
+<li><strong>Data Access</strong> : Developers can access data and functionality from other applications, making it easier to create rich, integrated services.</li>
+<li><strong>Interoperability</strong>: APIs allow applications to interact with each other, fostering a cohesive digital ecosystem.</li>
+<li><strong>Innovation</strong>: They enable developers to create new and innovative applications by building on top of existing ones.</li>
+<li><strong>Efficiency</strong>: Developers can create more reliable and efficient applications by leveraging APIs, saving time and resources.</li>
+<li><strong>Scalability</strong>: APIs make it easier to scale applications, accommodating growing user bases and increased demands.</li>
+</ul>
+<h3 id="api-functionality-and-examples">API functionality and examples<a hidden class="anchor" aria-hidden="true" href="#api-functionality-and-examples">#</a></h3>
+<p><strong>SOAP APIs:</strong> These are like messengers that use a special language (HTTP) to talk to web services. They can chat with web services written in different programming languages. In cybersecurity, we need to ensure these messengers don&rsquo;t share sensitive information with the wrong people.</p>
+<p><strong>REST APIs:</strong> Think of these as request forms you fill out on a website. You can ask for information (GET), add new stuff (POST), update what&rsquo;s there (PUT), or even delete things (DELETE). They&rsquo;re used to talk to databases, file systems, and more. Securing them is essential to prevent unauthorized access to data and actions.</p>
+<p><strong>JSON APIs:</strong> These are like messages between computers. They use a simple text format that&rsquo;s easy for machines to understand. They are commonly used to send data between a server and a web application. Protecting them means ensuring that the messages aren&rsquo;t tampered with or read by the wrong people.</p>
+<p><strong>HTTP API:</strong> This is like sending letters using the postal service but over the internet. It&rsquo;s a common way for web applications to talk to each other. Security here is about making sure the letters (data) aren&rsquo;t intercepted or altered by cybercriminals.</p>
+<p><strong>GraphQL:</strong> Imagine this as a smart assistant who understands your exact needs. With GraphQL, you can ask for specific information, and it will give you just that. It&rsquo;s great for reducing unnecessary data transfer. However, we need to make sure it doesn&rsquo;t give out too much information or get tricked into doing something it shouldn&rsquo;t.</p>
+<p>In the world of cybersecurity, it&rsquo;s important to protect these communication methods to ensure that your data stays safe and confidential while using the internet.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="next" href="/posts/2.hacking-techniques/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Hacking API techniques</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="">Jasiah</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

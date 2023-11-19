@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Demo (Part 2) | Jasiah</title>
+<meta name="keywords" content="">
+<meta name="description" content="Testing Before we jump in, it&rsquo;ll be handy to know a little bit more about the HTTP status codes. Here is nice little cheat sheet from OWASP for quick ref Okay now we&rsquo;ll have a look at my results and try to spot anything peculiar Our very first request is our control and there isn&rsquo;t any change to the original request so it&rsquo;s nothing odd. But if we look at the other attack packets their status is all HTTP 200.">
+<meta name="author" content="">
+<link rel="canonical" href="/posts/5.demo/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.158c5ac8e9603daaf70ca166289150e5c28de3dde0bbac1d91028b5c7da2bf70.css" integrity="sha256-FYxayOlgPar3DKFmKJFQ5cKN493gu6wdkQKLXH2iv3A=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="mask-icon" href="safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Demo (Part 2)" />
+<meta property="og:description" content="Testing Before we jump in, it&rsquo;ll be handy to know a little bit more about the HTTP status codes. Here is nice little cheat sheet from OWASP for quick ref Okay now we&rsquo;ll have a look at my results and try to spot anything peculiar Our very first request is our control and there isn&rsquo;t any change to the original request so it&rsquo;s nothing odd. But if we look at the other attack packets their status is all HTTP 200." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/5.demo/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-10-20T14:51:44+11:00" />
+<meta property="article:modified_time" content="2023-10-20T14:51:44+11:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Demo (Part 2)"/>
+<meta name="twitter:description" content="Testing Before we jump in, it&rsquo;ll be handy to know a little bit more about the HTTP status codes. Here is nice little cheat sheet from OWASP for quick ref Okay now we&rsquo;ll have a look at my results and try to spot anything peculiar Our very first request is our control and there isn&rsquo;t any change to the original request so it&rsquo;s nothing odd. But if we look at the other attack packets their status is all HTTP 200."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Posts",
+      "item": "/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Demo (Part 2)",
+      "item": "/posts/5.demo/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Demo (Part 2)",
+  "name": "Demo (Part 2)",
+  "description": "Testing Before we jump in, it\u0026rsquo;ll be handy to know a little bit more about the HTTP status codes. Here is nice little cheat sheet from OWASP for quick ref Okay now we\u0026rsquo;ll have a look at my results and try to spot anything peculiar Our very first request is our control and there isn\u0026rsquo;t any change to the original request so it\u0026rsquo;s nothing odd. But if we look at the other attack packets their status is all HTTP 200.",
+  "keywords": [
+    
+  ],
+  "articleBody": "Testing Before we jump in, it’ll be handy to know a little bit more about the HTTP status codes. Here is nice little cheat sheet from OWASP for quick ref Okay now we’ll have a look at my results and try to spot anything peculiar Our very first request is our control and there isn’t any change to the original request so it’s nothing odd. But if we look at the other attack packets their status is all HTTP 200. If we reference back to the handy table of codes we know that ideally the error should be 400 or 404 since we are messing with the URL. Oh, boy The results of our second pen test are quite alarming, to say the least. It appears that we’ve stumbled upon a rather concerning issue in the real world scenario. The source of this problem lies within the database itself, MariaDB, and our successful interaction with its backend system through this interface. It’s only a matter of time before we discover something beyond these error messages. Interestingly, the HTTP status code 200 is returned, indicating that the API processed the request, but the backend SQL is throwing errors. Delving into the error message, it seems that the “a” in our payload has mysteriously vanished from the response. This leads me to believe that the target parameter is meant to be an integer rather than a character. There’s a possibility that our injection attempts are causing the backend requests to break, which is a promising sign for an attacker. Let’s explore an attack that kicks off with an integer.\nThere we go! We successfully dumped the entire table. We had a hunch that this particular service was susceptible to this type of attack. Now, let’s shift our focus to other findings that can provide a more practical test. In this particular attack, we attempted to inject a “sleep” command, instructing the database to wait for a specified number of seconds. However, the outcome is rather mysterious. The database didn’t generate an error, but it also didn’t return any data. This result is a classic example of a finding that requires further investigation. To gain more insights, I’ve activated the response time columns to guide us. Judging by the response time, it doesn’t appear that our sleep statement injection was successful. But, if we right-click on this attack, we can send it to the repeater to make some adjustments and dig deeper into the situation.\nThe response time for our request stands at 13 milliseconds (located at the bottom right of the response), indicating that the command didn’t take effect, yet it also didn’t trigger any errors. Let’s experiment with a few tweaks and see where it leads us.\nIn the request above, it’s evident that our character encoding gets translated in the response. Additionally, we’ve gathered from the error messages that this database is running on MariaDB. This time, let’s include the integer value for the user ID before initiating our attack and observe the outcome.\nYasss we’ve managed to make the MariaDB server execute the “SLEEP(5)” command, and we’ve confirmed it by observing the time it took (5 seconds) at the bottom right of the response. The “SLEEP” command is a commonly used method for testing Blind SQL Injection because it elicits a somewhat binary response from the server. It either works, or it doesn’t. The successful execution of the “SLEEP” command opens the door to gaining more knowledge about the database’s syntax and peering behind the scenes. Now, imagine we hadn’t already dumped the table; we can take this success as a starting point and see how deep the rabbit hole goes.\nSo, we’ve made a few moves here. Firstly, we’ve added “1=2” after the “AND,” effectively altering the original query to return nothing (it’s false). This false statement is crucial because we intend to count the number of columns selected by the query by introducing our “UNION SELECT” command. Initially, we’ve inserted a single “NULL” value. As you can see from the response, the database informs us that it’s not the correct number of columns selected. Let’s continue adding NULL values until we reach a successful configuration (assuming we didn’t already know that a valid query returns two columns).\nOkay, now we’ve determined the correct number of columns selected for this specific query. Once we have this command format, it serves as a blueprint for more devious endeavors, such as:\nEureka! By substituting “@@version” for a NULL value, we’ve deepened our understanding of the database itself. Moving forward:\nWith “@@datadir,” we can discern that this database is hosted on a Windows OS, based on the file structure. Knowledge of the operating system can prove useful for future attacks if we ever need to access system files or directories (for instance, on a Linux system, we might aim for “/etc/passwd”). Let’s now investigate the account used by the database, shedding light on its privileges.\nHow convenient!! It seems to be a standard root account, which is a default configuration for DVWS, explaining the security vulnerabilities in this setup. Now, for the most thrilling part: extracting account credentials!\nIn the scenario above, we’ve modified the UNION SELECT command to fetch user details and their passwords from “mysql.user,” where user account information is stored. In this test instance, you’ll notice that the account passwords (found in the “last_name” fields) are empty, owing to the stock setup of DVWS. On a live or test system, we’d expect to see password hashes. Armed with this information, we can attempt offline brute-force attacks or employ a rainbow table to crack the hashes. Several tools, like hashcat and John the Ripper, can assist in this endeavor, but we’ll save that discussion for another time. Next on our agenda, let’s explore the list of databases.\nAs you can see, we continue to tweak the values we select. In this case, we’ve chosen “schema_name” from “information_schema.schemata,” yielding a list of all databases running on the server: dvws, information_schema, mysql, performance_schema, phpMyAdmin, and test. Moving deeper, let’s delve into the columns for each of these databases.\nThis command can be expanded to refine the information displayed here, but you get the idea. One request at a time, we can tailor our attack until we can extract everything from the databases we have access to. Once we identified this as a MySQL server, we can use this knowledge to guide us in modifying the query, targeting its syntax and structure. I’m pretty confident that we could even adapt this search query to extract data from every database and save it to a file, offering us ample time to peruse the content, especially if we’re concerned about generating excessive logs or time constraints. I reckon this is a good point to conclude our SQL injection testing, as we’ve essentially demonstrated our ability to manipulate the MySQL server to our heart’s content.\n",
+  "wordCount" : "1150",
+  "inLanguage": "en",
+  "datePublished": "2023-10-20T14:51:44+11:00",
+  "dateModified": "2023-10-20T14:51:44+11:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/posts/5.demo/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Jasiah",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="" accesskey="h" title="Jasiah (Alt + H)">Jasiah</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="/" title="Jasiah">
+                    <span>home</span>
+                </a>
+            </li>
+            <li>
+                <a href="/posts/" title="project">
+                    <span>project</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="">Home</a>&nbsp;»&nbsp;<a href="/posts/">Posts</a></div>
+    <h1 class="post-title">
+      Demo (Part 2)
+    </h1>
+    <div class="post-meta"><span title='2023-10-20 14:51:44 +1100 +1100'>October 20, 2023</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h2 id="testing">Testing<a hidden class="anchor" aria-hidden="true" href="#testing">#</a></h2>
+<p>Before we jump in, it&rsquo;ll be handy to know a little bit more about the HTTP status codes. Here is nice little <a href="https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html">cheat sheet</a> from OWASP for quick ref
+<img loading="lazy" src="/img/5.png" alt="my image"  />
+</p>
+<p>Okay now we&rsquo;ll have a look at my results and try to spot anything peculiar
+<img loading="lazy" src="/img/6.png" alt="my image"  />
+</p>
+<p>Our very first request is our control and there isn&rsquo;t any change to the original request so it&rsquo;s nothing odd. But if we look at the other attack packets their status is all HTTP 200. If we reference back to the handy table of codes we know that ideally the error should be 400 or 404 since we are messing with the URL.
+<img loading="lazy" src="/img/7.png" alt="my image"  />
+</p>
+<p><em><strong>Oh, boy</strong></em> The results of our second pen test are quite alarming, to say the least. It appears that we&rsquo;ve stumbled upon a rather concerning issue in the real world scenario. The source of this problem lies within the database itself, MariaDB, and our successful interaction with its backend system through this interface. It&rsquo;s only a matter of time before we discover something beyond these error messages. Interestingly, the HTTP status code 200 is returned, indicating that the API processed the request, but the backend SQL is throwing errors. Delving into the error message, it seems that the &ldquo;a&rdquo; in our payload has mysteriously vanished from the response. This leads me to believe that the target parameter is meant to be an integer rather than a character. There&rsquo;s a possibility that our injection attempts are causing the backend requests to break, which is a promising sign for an attacker. Let&rsquo;s explore an attack that kicks off with an integer.</p>
+<p><img loading="lazy" src="/img/8.png" alt="my image"  />
+</p>
+<p>There we go! We successfully dumped the entire table. We had a hunch that this particular service was susceptible to this type of attack. Now, let&rsquo;s shift our focus to other findings that can provide a more practical test.
+<img loading="lazy" src="/img/9.png" alt="my image"  />
+</p>
+<p>In this particular attack, we attempted to inject a &ldquo;sleep&rdquo; command, instructing the database to wait for a specified number of seconds. However, the outcome is rather mysterious. The database didn&rsquo;t generate an error, but it also didn&rsquo;t return any data. This result is a classic example of a finding that requires further investigation. To gain more insights, I&rsquo;ve activated the response time columns to guide us. Judging by the response time, it doesn&rsquo;t appear that our sleep statement injection was successful. But, if we right-click on this attack, we can send it to the repeater to make some adjustments and dig deeper into the situation.</p>
+<p><img loading="lazy" src="/img/10.png" alt="my image"  />
+</p>
+<p>The response time for our request stands at 13 milliseconds (located at the bottom right of the response), indicating that the command didn&rsquo;t take effect, yet it also didn&rsquo;t trigger any errors. Let&rsquo;s experiment with a few tweaks and see where it leads us.</p>
+<p><img loading="lazy" src="/img/11.png" alt="my image"  />
+</p>
+<p>In the request above, it&rsquo;s evident that our character encoding gets translated in the response. Additionally, we&rsquo;ve gathered from the error messages that this database is running on MariaDB. This time, let&rsquo;s include the integer value for the user ID before initiating our attack and observe the outcome.</p>
+<p><img loading="lazy" src="/img/12.png" alt="my image"  />
+</p>
+<p>Yasss we&rsquo;ve managed to make the MariaDB server execute the &ldquo;SLEEP(5)&rdquo; command, and we&rsquo;ve confirmed it by observing the time it took (5 seconds) at the bottom right of the response. The &ldquo;SLEEP&rdquo; command is a commonly used method for testing Blind SQL Injection because it elicits a somewhat binary response from the server. It either works, or it doesn&rsquo;t. The successful execution of the &ldquo;SLEEP&rdquo; command opens the door to gaining more knowledge about the database&rsquo;s syntax and peering behind the scenes. Now, imagine we hadn&rsquo;t already dumped the table; we can take this success as a starting point and see how deep the rabbit hole goes.</p>
+<p><img loading="lazy" src="/img/13.png" alt="my image"  />
+</p>
+<p>So, we&rsquo;ve made a few moves here. Firstly, we&rsquo;ve added &ldquo;1=2&rdquo; after the &ldquo;AND,&rdquo; effectively altering the original query to return nothing (it&rsquo;s false). This false statement is crucial because we intend to count the number of columns selected by the query by introducing our &ldquo;UNION SELECT&rdquo; command. Initially, we&rsquo;ve inserted a single &ldquo;NULL&rdquo; value. As you can see from the response, the database informs us that it&rsquo;s not the correct number of columns selected. Let&rsquo;s continue adding NULL values until we reach a successful configuration (assuming we didn&rsquo;t already know that a valid query returns two columns).</p>
+<p><img loading="lazy" src="/img/14.png" alt="my image"  />
+</p>
+<p>Okay, now we&rsquo;ve determined the correct number of columns selected for this specific query. Once we have this command format, it serves as a blueprint for more devious endeavors, such as:</p>
+<p><img loading="lazy" src="/img/15.png" alt="my image"  />
+
+<img loading="lazy" src="/img/16.png" alt="my image"  />
+</p>
+<p>Eureka! By substituting &ldquo;@@version&rdquo; for a NULL value, we&rsquo;ve deepened our understanding of the database itself. Moving forward:</p>
+<p><img loading="lazy" src="/img/17.png" alt="my image"  />
+</p>
+<p>With &ldquo;@@datadir,&rdquo; we can discern that this database is hosted on a Windows OS, based on the file structure. Knowledge of the operating system can prove useful for future attacks if we ever need to access system files or directories (for instance, on a Linux system, we might aim for &ldquo;/etc/passwd&rdquo;). Let&rsquo;s now investigate the account used by the database, shedding light on its privileges.</p>
+<p><img loading="lazy" src="/img/18.png" alt="my image"  />
+</p>
+<p>How convenient!! It seems to be a standard root account, which is a default configuration for DVWS, explaining the security vulnerabilities in this setup. Now, for the most thrilling part: extracting account credentials!</p>
+<p><img loading="lazy" src="/img/19.png" alt="my image"  />
+</p>
+<p>In the scenario above, we&rsquo;ve modified the UNION SELECT command to fetch user details and their passwords from &ldquo;mysql.user,&rdquo; where user account information is stored. In this test instance, you&rsquo;ll notice that the account passwords (found in the &ldquo;last_name&rdquo; fields) are empty, owing to the stock setup of DVWS. On a live or test system, we&rsquo;d expect to see password hashes. Armed with this information, we can attempt offline brute-force attacks or employ a rainbow table to crack the hashes. Several tools, like hashcat and John the Ripper, can assist in this endeavor, but we&rsquo;ll save that discussion for another time. Next on our agenda, let&rsquo;s explore the list of databases.</p>
+<p><img loading="lazy" src="/img/20.png" alt="my image"  />
+</p>
+<p>As you can see, we continue to tweak the values we select. In this case, we&rsquo;ve chosen &ldquo;schema_name&rdquo; from &ldquo;information_schema.schemata,&rdquo; yielding a list of all databases running on the server: dvws, information_schema, mysql, performance_schema, phpMyAdmin, and test. Moving deeper, let&rsquo;s delve into the columns for each of these databases.</p>
+<p><img loading="lazy" src="/img/21.png" alt="my image"  />
+</p>
+<p><img loading="lazy" src="/img/22.png" alt="my image"  />
+</p>
+<p>This command can be expanded to refine the information displayed here, but you get the idea. One request at a time, we can tailor our attack until we can extract everything from the databases we have access to. Once we identified this as a MySQL server, we can use this knowledge to guide us in modifying the query, targeting its syntax and structure. I&rsquo;m pretty confident that we could even adapt this search query to extract data from every database and save it to a file, offering us ample time to peruse the content, especially if we&rsquo;re concerned about generating excessive logs or time constraints. I reckon this is a good point to conclude our SQL injection testing, as we&rsquo;ve essentially demonstrated our ability to manipulate the MySQL server to our heart&rsquo;s content.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="/posts/4.demo/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Demo (Part 1)</span>
+  </a>
+  <a class="next" href="/posts/6.demo/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Demo (Part 3)</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="">Jasiah</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
