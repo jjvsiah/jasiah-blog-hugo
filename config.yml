@@ -10,9 +10,6 @@ params:
   homeInfoParams:
     Title: "Jasiah's Something Awesome Project!"
     Content: I'll be going through everything about API hacking! From what even is an API to how to hack it, we will cover it all. Get started below through the sequential posts :)
-  socialIcons:
-    - name: github
-      url: "https://github.com/jjvsiah/"
 menu:
   main:
     - identifier: home
